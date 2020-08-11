@@ -1,4 +1,5 @@
 //make variables:
+var hour =moment().format("H")
 
 var moment = moment();
 var currentDay = moment.format('dddd, MMMM Do, YYYY');
@@ -28,8 +29,15 @@ function savedTask() {
             if(divId.includes("time")){
                 var divTime =parseInt(divId);
             }
-        })
-    }
+        });
+        if(divTime < h) {
+            $(this).children(".description").attr("class", "col-md-10 description past");
+        }else if(divTime == h){
+            $(this).children(".description").attr("class", "col-md-10 description present");
+        } else {
+            $(this).children(".description").attr("class", "col-md-10 description future");
+        }
+    
 
 
 
