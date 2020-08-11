@@ -1,6 +1,48 @@
-var m = moment();
-var currentDay = m.format('dddd, MMMM Do, YYYY');
+//make variables:
+
+var moment = moment();
+var currentDay = moment.format('dddd, MMMM Do, YYYY');
 $("#currentDay").text(currentDay);
 
-// THEN I am presented with timeblocks for standard business hours
-// WHEN I view the timeblocks for that day
+//make on clicks
+$("button").on("click", function(){
+    var userInput = $(this).siblings(".description").val();
+    if(userInput !== "") {
+        var mainRow = $(this).parent().attr("id");
+        savedTask(userInput, mainRow);
+    }
+});
+function savedTask() {
+    $("div").each(function(index, value){
+        var divId = this.id;
+        if(divId.includes("time")) {
+            var savedInfo = window.localStorage.getItem(divId)
+            if(savedinfo != null) {
+                $(this).children(".description").val(savedInfo)
+            }
+        }
+    });
+    function getSetColors(){
+        $("div").each(function(index, value){
+            var divId = this.id;
+            if(divId.includes("time")){
+                var divTime =parseInt(divId);
+            }
+        })
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+//call the functions:
+savedTask();
