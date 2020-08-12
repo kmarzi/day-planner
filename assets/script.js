@@ -1,56 +1,56 @@
 //make variables:
-var hour =moment().format("H")
+var hour = moment().format("H")
+var getSetColors = "";
 
 var moment = moment();
 var currentDay = moment.format('dddd, MMMM Do, YYYY');
 $("#currentDay").text(currentDay);
 
 //make on clicks
-$("button").on("click", function(){
+$("button").on("click", function () {
     var userInput = $(this).siblings(".description").val();
-    if(userInput !== "") {
+    if (userInput !== "") {
         var mainRow = $(this).parent().attr("id");
         savedTask(userInput, mainRow);
     }
 });
 function savedTask() {
-    $("div").each(function(index, value){
+    $("div").each(function (index, value) {
         var divId = this.id;
-        if(divId.includes("time")) {
+        if (divId.includes("time")) {
             var savedInfo = window.localStorage.getItem(divId)
-            if(savedinfo != null) {
+            if (savedInfo != null) {
                 $(this).children(".description").val(savedInfo)
             }
         }
-    });
-    function getSetColors(){
-        $("div").each(function(index, value){
+        });
+
+    function getSetColors() {
+        $("div").each(function (index, value) {
             var divId = this.id;
-            if(divId.includes("time")){
-                var divTime =parseInt(divId);
+            if (divId.includes("time")) {
+                var divTime = parseInt(divId);
             }
         });
+        getSetColors();
+
         if(divTime < h) {
             $(this).children(".description").attr("class", "col-md-10 description past");
-        }else if(divTime == h){
+        } else if (divTime == h) {
             $(this).children(".description").attr("class", "col-md-10 description present");
         } else {
             $(this).children(".description").attr("class", "col-md-10 description future");
-        }
+        };
+
+        function setTimeInterval() {
+            window.setInterval(getSetColors, 3000);
+        };
+        setTimeInterval();
+
+        function savedTask(userInput, mainRow) {
+            window.localStorage.removeItem(mainRow);
+            window.localStorage.setItem(mainRow, userInput)
+        };
+
+    }};
     
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-//call the functions:
-savedTask();
