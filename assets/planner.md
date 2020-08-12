@@ -14,4 +14,4 @@ The planner is color coded;
 
     Used jQuery and bootstrap to help create this project.
 
-    deployed link: 
+    deployed link: https://kmarzi.github.io/day-planner/.
