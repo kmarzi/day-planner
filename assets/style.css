@@ -21,6 +21,15 @@ textarea{
   border-bottom: 10px solid black;
 }
 
+.lead {
+  color: purple;
+  font-family: cursive;
+}
+
+.display-3 {
+  font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+}
+
 .description{
   white-space: pre-wrap;
 }
@@ -33,7 +42,7 @@ textarea{
 .row {
   white-space: pre-wrap;
   height: 80px;
-  border-top: 1px solid white;;
+  border-top: 1px black;;
 }
 
 .hour {
